@@ -13,7 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = [
             'id', 'name', 'description', 'price', 'in_stock', 'category',
-            'name_en', 'name_de', 'description_en', 'description_de'
+            'name_en', 'name_de', 'description_en', 'description_de', "in_home"
         ]
 
 

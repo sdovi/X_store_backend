@@ -18,6 +18,8 @@ class Product(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='products')
     is_popular = models.BooleanField(default=False)
 
+    in_home = models.BooleanField(default=True)
+
     def __str__(self):
         return self.name
 
@@ -40,11 +42,16 @@ class Banner(models.Model):
 
     def __str__(self):
         return f"Баннер {self.id}"
+from django.db import models
+
+
+
 
 
 class SocialMedia(models.Model):
-    icon = models.ImageField(upload_to='social_icons/', verbose_name="Иконка")
+    icon = models.FileField(upload_to='social_icons/', verbose_name="Иконка")
     text = models.CharField(max_length=255, verbose_name="Текст")
+    link = models.TextField(verbose_name="Ссылка")
 
     def __str__(self):
         return self.text
