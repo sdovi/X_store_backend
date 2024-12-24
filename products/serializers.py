@@ -23,6 +23,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'description_en',
             'description_de',
             "in_home",
+            "is_popular",
             "image1",
             "image2"
         ]
