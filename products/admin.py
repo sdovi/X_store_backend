@@ -1,6 +1,10 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from .models import Product, Category, Review, Banner, SocialMedia
+from .models import Product, Category, Review, Banner, SocialMedia, PrivacyPolicy
+
+@admin.register(PrivacyPolicy)
+class PrivacyPolicyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
 
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):

@@ -1,4 +1,14 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
+
+class PrivacyPolicy(models.Model):
+    title = models.CharField(max_length=200)
+    content = RichTextField()
+    content_de = RichTextField()
+
+    def __str__(self):
+        return self.title
 
 
 class Category(models.Model):
@@ -10,7 +20,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
+    description = RichTextField()
     image1 = models.ImageField(upload_to='products/', blank=True, null=True)
     image2 = models.ImageField(upload_to='products/', blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)

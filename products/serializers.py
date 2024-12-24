@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Product, Category, Review, Banner, SocialMedia
+from .models import Product, Category, Review, Banner, SocialMedia, PrivacyPolicy
+
+
+class PrivacyPolicySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PrivacyPolicy
+        fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):

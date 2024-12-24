@@ -1,7 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from .views import CategoryListCreateAPIView, ProductListCreateAPIView, ProductRetrieveUpdateDestroyAPIView,ReviewListCreateAPIView, ReviewRetrieveUpdateDestroyAPIView, BannerListCreateAPIView, BannerRetrieveUpdateDestroyAPIView, SocialMediaListCreateAPIView, SocialMediaRetrieveUpdateDestroyAPIView
+from rest_framework.routers import DefaultRouter
+from .views import PrivacyPolicyViewSet
+
+router = DefaultRouter()
+router.register(r'privacy-policies', PrivacyPolicyViewSet)
 
 urlpatterns = [
+    path('politika/', include(router.urls)),
     path('categories/', CategoryListCreateAPIView.as_view(), name='category-list-create'),
     path('products/', ProductListCreateAPIView.as_view(), name='product-list-create'),
     path('products/<int:pk>/', ProductRetrieveUpdateDestroyAPIView.as_view(), name='product-detail'),

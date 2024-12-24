@@ -1,9 +1,14 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .models import Product, Category, Review, Banner, SocialMedia
-from .serializers import ProductSerializer, CategorySerializer, ReviewSerializer, BannerSerializer, SocialMediaSerializer
+from .models import Product, Category, Review, Banner, SocialMedia, PrivacyPolicy
+from .serializers import ProductSerializer, CategorySerializer, ReviewSerializer, BannerSerializer, SocialMediaSerializer,PrivacyPolicySerializer
+from rest_framework import viewsets
 
-
-
+class PrivacyPolicyListCreateAPIView(ListCreateAPIView):
+    queryset = PrivacyPolicy.objects.all()
+    serializer_class = PrivacyPolicySerializer
+class PrivacyPolicyViewSet(viewsets.ModelViewSet):
+    queryset = PrivacyPolicy.objects.all()
+    serializer_class = PrivacyPolicySerializer
 class BannerListCreateAPIView(ListCreateAPIView):
     queryset = Banner.objects.all()
     serializer_class = BannerSerializer
